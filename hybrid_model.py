@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 from fusion_gpu import LSTM_net, sum_net
+import numpy as np
 
 
 class Xi(nn.Module):
@@ -183,7 +184,7 @@ class Hybrid_Network(nn.Module):
         self.lstm = LSTM_net()
 
 
-        self.linear = nn.Linear(in_features=100,
+        self.linear1 = nn.Linear(in_features=64,
                                 out_features=32,
                                 bias=True)
         self.linear = nn.Linear(in_features=64,
@@ -200,6 +201,7 @@ class Hybrid_Network(nn.Module):
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         batch_count = 0
         batch_out = []
+        i = 0
         for x_batch in Lstm_feature:
             batch_count += 1
             x = torch.LongTensor(x_batch)
@@ -207,17 +209,29 @@ class Hybrid_Network(nn.Module):
 
 
             out = self.lstm(x)  # torch.Size([64, 128])
-            print(out.shape)
+            #print(out.shape)
             # print(type(out))
 
+            out = out.detach().numpy()
             batch_out.append(out)
+        batch_out = np.array(batch_out)
+        batch_out = torch.from_numpy(batch_out)
+        net_input = self.tanh(batch_out.sum(dim=1))
+        #print(net_input)
+        lstm_out = self.linear1(net_input)
 
-        net_input = self.tanh(batch_out.sum(dim = 0))
-        lstm_out = self.sum(net_input)
-
-        network_out = torch.cat((gnn_result, lstm_out), 0)
+        '''gnn_result.unsqueeze(-1)
+        gnn_result.view(-1,32)
+        lstm_out.squeeze(dim=1)'''
+        #lstm_out.reshape(32)
+        #print(gnn_result.shape)
+        #print(lstm_out.shape)
+        network_out = torch.cat([gnn_result.view(-1,32), lstm_out], 1)
+        #print(network_out.shape)
         final_out = self.softmax(self.linear(network_out))
+        #print(final_out.shape)
+        #print(final_out)
 
 
-        return final_out  # 最终状态（s,）
+        return final_out
 
