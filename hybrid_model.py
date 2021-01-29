@@ -90,7 +90,7 @@ class AggrSum(nn.Module):
         super(AggrSum, self).__init__()
 
 
-    def forward(self, H, X_neis,V):  #####################x_neis
+    def forward(self, H, X_neis,V):  
         # H : (N, s) -> (V, s)
         # X_node : (N, )
         mask = torch.stack([X_neis] * V, 0)
@@ -168,7 +168,7 @@ class OriLinearGNN(nn.Module):
         #graph_out.view(-1,self.stat_dim)
         #out = self.softmax(self.linear2(graph_out))
 
-        return graph_out  # 最终状态（s,）
+        return graph_out  
 
 
 class Hybrid_Network(nn.Module):
