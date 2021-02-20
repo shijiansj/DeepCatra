@@ -80,6 +80,7 @@ def train(train,batch_size):
 
     T = 8
     model = Hybrid_Network(30, 32, T)  # 加载模型
+    model.to(device)
 
     Loss = nn.CrossEntropyLoss().to(device)          #定义损失
     learning_rate = 0.001
@@ -138,7 +139,7 @@ def train(train,batch_size):
             print('epoch %d, step %d, loss %.4f'
                   % (epoch + 1, step, full_loss))
 
-        acc = correct/902
+        acc = correct/len(train[0])
         print("epoch :{} acc :{}".format(epoch + 1, acc))
         if acc > best_val_acc:
             torch.save(model.state_dict(), 'model_params.pkl')
@@ -160,6 +161,7 @@ def test(test):
 
     T = 8
     model = Hybrid_Network(30, 32, T)  # 加载模型
+    model.to(device)
     model.load_state_dict(torch.load('model_params.pkl'))
     test_pred = []
 
