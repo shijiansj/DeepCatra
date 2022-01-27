@@ -15,7 +15,7 @@ run the commond:
 
 
 ```python3 Generate_syscall_graph.py
-```  
+
 
 to generate the syscall garaph of apk samples.
 
