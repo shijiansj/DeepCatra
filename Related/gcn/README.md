@@ -21,7 +21,7 @@ run the commond:
 
 python3 train.py
 
-to train the GCN model.
+to train and evaluate the GCN model.
 
 ## References
 T. S. John, et al. “Graph convolutional networks for android malware detection with system call graphs,” in ISEA-ISAP, 2020, pp. 162–170.
