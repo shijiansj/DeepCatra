@@ -1,4 +1,4 @@
-# Title
+# GCN
 
 This is the code of GCN.
 
