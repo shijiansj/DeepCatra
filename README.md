@@ -1,4 +1,4 @@
-# DeepCatra: Learning Flow- and Graph-based Malicious Behaviors for Android Malware Detection
+# DeepCatra: Learning Flow- and Graph-based Behaviors for Android Malware Detection
 
 This is the code and data repository of DeepCatra.
 
@@ -15,7 +15,6 @@ This is the code and data repository of DeepCatra.
   - codaspy-cnn: results of [1].
   - cns-lstm: results of [2].
   - gcn: results of [3].
-  - hybrid: results of [4].
 
 ## References
 
@@ -24,8 +23,6 @@ This is the code and data repository of DeepCatra.
 [2] D. Chaulagain, et al. ¡°Hybrid analysis of android apps for security vetting using deep learning,¡± in CNS¡¯20. IEEE, 2020, pp. 1¨C9.
 
 [3] T. S. John, et al. ¡°Graph convolutional networks for android malware detection with system call graphs,¡± in ISEA-ISAP, 2020, pp. 162¨C170.
-
-[4] A. Pektas and T. Acarman, ¡°Learning to detect android malware via opcode sequences,¡± Neurocomputing, vol. 396, pp. 599¨C608, 2020.
 
 ## Contributor
 
