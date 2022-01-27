@@ -1,8 +1,21 @@
-系统调用图的节点为论文中说明的26个系统调用，运行命令：
-python3 Generate_syscall_graph.py
-可以根据apk的系统调用序列生成系统调用图的边。
-为方便起见，将26个系统调用映射成了数字，生成的系统调用图的边表示为：源节点 目的节点。
-通过该方法生成一个apk的系统调用图的例子为：
-00B86FB1B89B3531CB5D0A40D23C40DFA3342B7010351D6F36C8F77596C1DA5B_syscall.txt——>00B86FB1B89B3531CB5D0A40D23C40DFA3342B7010351D6F36C8F77596C1DA5B_edge.txt
+# Title
+
+This is the code of GCN.
+
+## Install
+
+python3
+PyG2.0.3
+torch1.7.0
+
+## Usage
+
+run the commond:
+python3 Generate_syscall_graph.py  to generate the syscall garaph of apk samples.
+run the commond:
+python3 train.py to train the GCN model.
+
+## References
+T. S. John, et al. “Graph convolutional networks for android malware detection with system call graphs,” in ISEA-ISAP, 2020, pp. 162–170.
 
 
