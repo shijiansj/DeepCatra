@@ -13,16 +13,13 @@ torch1.7.0
 
 run the commond:
 
-
-```python3 Generate_syscall_graph.py
-
+python3 Generate_syscall_graph.py
 
 to generate the syscall garaph of apk samples.
 
 run the commond:
 
-```python3 train.py
-``` 
+python3 train.py
 
 to train the GCN model.
 
