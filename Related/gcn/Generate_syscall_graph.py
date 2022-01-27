@@ -6,9 +6,7 @@ for i in range(len(nodes_list)):
     nodes_dict[nodes_list[i]] = i+1
 
 #根据apk的系统调用序列生成系统调用图的边
-def generate_edge():
-    source_path = 'D:\\GCN\\syscall\\malware'
-    des_path = 'D:\\GCN\\edge\\malware'
+def generate_edge(source_path,des_path):
 
     apks_list = os.listdir(source_path)
     for apk_txt in apks_list:
@@ -40,4 +38,5 @@ def generate_edge():
                         w_file.write('\n')
                     w_file.close()
 
-
+generate_edge(malware_sysycall_path,malware_edge_path)
+generate_edge(benign_sysycall_path,benign_edge_path)
