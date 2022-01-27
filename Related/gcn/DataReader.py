@@ -4,8 +4,7 @@ import networkx as nx
 
 
 #读系统调用图的边
-def edge_read():
-    dataset_path =r'D:\GCN\GCN_update_dataset\GCN_new_dataset'
+def edge_read(dataset_path):
     types = os.listdir(dataset_path)
     Edge = []
     label_list = []
