@@ -25,13 +25,13 @@ syscall sequence is in file "00B86FB1B89B3531CB5D0A40D23C40DFA3342B7010351D6F36C
 
 then run the commond:
 
-python3 train.py train_dataset_path valid_dataset_path
+python3 model_train.py train_dataset_path valid_dataset_path
 
 to train and evaluate the GCN model. The best model parameters has been saved in the file "model_params.pkl"
 
 finally run the command:
 
-python3 test.py test_dataset_path
+python3 model_test.py test_dataset_path
 
 to evaluate the best model on the test dataset. The evaluate results has been saved in "results".
 
