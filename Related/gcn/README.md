@@ -27,7 +27,7 @@ then run the commond:
 
 python3 model_train.py train_dataset_path valid_dataset_path
 
-to train and evaluate the GCN model. The best model parameters has been saved in the file "model_params.pkl"
+to train and evaluate the GCN model. The best model parameters has been saved in the file "model_best_params.pkl"
 
 finally run the command:
 
