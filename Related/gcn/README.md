@@ -30,7 +30,7 @@ finally run the command:
 ```
 python3 model_test.py test_dataset_path
 ```
-to evaluate the best model on the test dataset. The evaluate results has been saved in "results".
+to evaluate the best model on the test dataset.
 
 ## References
 T. S. John, et al. “Graph convolutional networks for android malware detection with system call graphs,” in ISEA-ISAP, 2020, pp. 162–170.
