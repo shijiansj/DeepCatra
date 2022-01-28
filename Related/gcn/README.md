@@ -5,9 +5,9 @@ This is the code of GCN.
 ## Install
 Before running the code，you need first install the packages as follows:
 
-PyG2.0.3
-
 torch1.7.0
+
+PyG2.0.3
 
 ## Usage
 
