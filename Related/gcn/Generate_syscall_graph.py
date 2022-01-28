@@ -1,4 +1,5 @@
 import os
+import sys
 
 nodes_list = ['recvfrom','write','ioctl','read','sendto','dup','writev','pread','close','socket','bind','connect','mkdir','access','chmod','open','fchown','rename','unlink','pwrit','unmask','fcntl64','recvmsg','sendmsg','getdents64','epoll_wait']
 nodes_dict = {}
@@ -38,5 +39,16 @@ def generate_edge(source_path,des_path):
                         w_file.write('\n')
                     w_file.close()
 
-generate_edge(malware_sysycall_path,malware_edge_path)
-generate_edge(benign_sysycall_path,benign_edge_path)
+
+def main():
+    source_path = sys.argv[1]
+    des_path = sys.argv[2]
+    source_benign_path  = os.path.join(source_path, 'benign')
+    source_malware_path = os.path.join(source_path, 'malware')
+    des_benign_path = os.path.join(des_path, 'benign')
+    des_malware_path = os.path.join(des_path, 'malware')
+    generate_edge(source_benign_path,des_benign_path)
+    generate_edge(source_malware_path,des_malware_path)
+
+if __name__ == "__main__":
+    main()
