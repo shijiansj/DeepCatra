@@ -23,13 +23,13 @@ then run the commond:
 ```
 python3 model_train.py train_dataset_path valid_dataset_path
 ```
-to train GCN model and evaluate the GCN model on validation dataset. The best model parameters has been saved in the file `model_best_params.pkl`. The parameter `train_dataset_path` is the directory of train dataset and The parameter `valid_dataset_path` is the directory of validation dataset.
+to train GCN model and evaluate the GCN model on validation dataset. The parameter `train_dataset_path` is the path of train dataset and The parameter `valid_dataset_path` is the path of validation dataset.The best model parameters has been saved in the file `model_best_params.pkl`.
 
 finally run the command:
 ```
 python3 model_test.py test_dataset_path
 ```
-to evaluate the best model on the test dataset. The parameter `test_dataset_path` is the directory of test dataset.
+to evaluate the best model on the test dataset. The parameter `test_dataset_path` is the path of test dataset.
 
 ## References
 T. S. John, et al. “Graph convolutional networks for android malware detection with system call graphs,” in ISEA-ISAP, 2020, pp. 162–170.
