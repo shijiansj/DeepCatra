@@ -152,9 +152,6 @@ def get_data(path, ln,split_length):
                 single_apk_data = np.array(single_apk_data)
                 lstm_feature.append(np.array(single_apk_data))
 
-    print(len(graph_edge))
-    print(len(graph_vertix))
-    print(len(lstm_feature))
     return graph_vertix, graph_edge, lstm_feature
 
 class LSTM_net(nn.Module):
