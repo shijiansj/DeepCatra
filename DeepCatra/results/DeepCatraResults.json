@@ -1,0 +1,9 @@
+{
+    "DeepCatra_Result": {
+        "accuracy": 0.9594,
+        "precision": 0.9932,
+        "recall": 0.9258,
+        "F1": 0.9583,
+        "AUC": 0.9659
+    }
+}
