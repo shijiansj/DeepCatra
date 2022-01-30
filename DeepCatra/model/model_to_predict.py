@@ -17,12 +17,14 @@ def encoding():
     return opcode_dict
 opcode_dict = encoding()
 
-def split_opcode_seq(opcode_seq,split_length):
+def split_opcode_seq(opcode_seq,split_n):
     opcode_seq_list=[]
-    num=int(len(opcode_seq)/split_length)
-    for i in range(0,num):
-        opcode_seq_list.append(np.asarray(opcode_seq[len(opcode_seq)-(split_length*(i+1)):len(opcode_seq)-(split_length*i)]))
-    opcode_seq_list=reversed(opcode_seq_list)
+    num=int(len(opcode_seq)/split_n)
+    diff_len = (num+1)*split_n - len(opcode_seq)
+    arr = np.array(opcode_seq)
+    opcode_seq = np.pad(arr, (0, diff_len), 'constant')
+    for i in range(num+1):
+        opcode_seq_list.append(opcode_seq[i*split_n:split_n*(i+1)])
     return opcode_seq_list
 
 def preprocess(graph_vertix,graph_edge):
