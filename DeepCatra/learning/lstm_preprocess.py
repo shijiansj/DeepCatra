@@ -10,13 +10,10 @@ def encoding():
                 num=int(line[line.find(":")+1:])
                 opcode_dict[opcode]=num
     return opcode_dict
-
-def split_opcode_seq(opcode_seq,split_n):
+def split_opcode_seq(opcode_seq):
     opcode_seq_list=[]
     num=int(len(opcode_seq)/split_n)
-    diff_len = (num+1)*split_n - len(opcode_seq)
-    arr = np.array(opcode_seq)
-    opcode_seq = np.pad(arr, (0, diff_len), 'constant')
-    for i in range(num+1):
-        opcode_seq_list.append(opcode_seq[i*split_n:split_n*(i+1)])
+    for i in range(0,num):
+        opcode_seq_list.append(np.asarray(opcode_seq[len(opcode_seq)-(split_n*(i+1)):len(opcode_seq)-(split_n*i)]))  
+    opcode_seq_list=reversed(opcode_seq_list)
     return opcode_seq_list
