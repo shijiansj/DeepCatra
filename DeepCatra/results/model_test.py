@@ -87,7 +87,7 @@ def load_my_data_split(deal_folder,split_length):
         for line in file.readlines():
             line = line.strip("\n")
             if line == "" and len(opcode_seq) != 0:
-                feature_data.extend(split_opcode_seq(opcode_seq))
+                feature_data.extend(split_opcode_seq(opcode_seq,split_length))
                 opcode_seq = []
             elif line.find(":") == -1 and line != "":
                 opcode_seq.append(np.int32(opcode_dict[line]))
@@ -266,7 +266,7 @@ class AggrSum(nn.Module):
     def __init__(self):
         super(AggrSum, self).__init__()
 
-    def forward(self, H, X_neis, V):  #####################x_neis
+    def forward(self, H, X_neis, V):
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         mask = torch.stack([X_neis] * V, 0)
         mask = mask.float() - torch.unsqueeze(torch.range(0, V - 1).to(device).float(), 1)
@@ -292,9 +292,6 @@ class OriLinearGNN(nn.Module):
 
         # 实现H的分组求和
         self.Aggr = AggrSum()
-        self.linear = nn.Linear(in_features=32,
-                                out_features=2,
-                                bias=True)
 
     def forward(self, feat_Matrix, X_Node, X_Neis, edge_type_index, dg_list):
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -328,8 +325,7 @@ class OriLinearGNN(nn.Module):
         soft_attn_weights = self.softmax(self.linear1(H).squeeze())
         node_relation_out = H * soft_attn_weights.unsqueeze(-1)
 
-        graph_out = self.tanh(torch.sum(node_relation_out, 0, True))
-        graph_out = self.softmax(self.linear(graph_out))
+        graph_out = self.tanh(torch.sum(node_relation_out, 0))
 
         return graph_out
 
