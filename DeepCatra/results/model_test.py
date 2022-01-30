@@ -183,7 +183,7 @@ def get_data(path, ln,split_length):
             num0+=1
     print(num1)
     print(num0)
-    return labels, graph_vertix, graph_edge, lstm_feature,hash_list
+    return labels, graph_vertix, graph_edge, lstm_feature
 
 class LSTM_net(nn.Module):
     def __init__(self):
