@@ -7,9 +7,9 @@ This is the code and data repository of DeepCatra.
 - DeepCatra: The implementation and data of DeepCatra.
   - API_list: The critical API list in Java and smali.
   - features: All the opcode sequences and abstract flow graphs as features for embedding.
-  - learning: The code for learning the deep neural network model of DeepCatra.
-  - model: The detection model of DeepCatra (parameter tuned with validation set).
-  - results: The evaluation results of metrics.
+  - learning: The code for learning the deep neural network model of DeepCatra (parameter tuned with validation set).
+  - model: The detection model of DeepCatra.
+  - results: The evaluation results of the testing dataset and the metrics.
 - Dataset: The dataset used in our evaluations.
 - Related: Results of related work under comparison.
   - codaspy-cnn: results of [1].
