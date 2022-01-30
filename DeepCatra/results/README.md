@@ -3,7 +3,7 @@
 This is the explanation of the `results` directory.
 
 ## Install
-Before running the code，you need first install the packages as follows:
+Before running the code，you need first install the package as follows:
 
 torch1.7.0
 
